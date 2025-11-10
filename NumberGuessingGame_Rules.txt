@@ -1,0 +1,5 @@
+In this game the computer will choose a number between 1 and 100 and you have to guess the number 
+If you guessed a higher number then the computer will tell you to enter a lower number
+And if you guessed a lower number then the computer will tell you to enter a higher number
+You will only have 10 chances to guess the number
+You win if you guessed the right number in 10 chances ,else the computer will win
