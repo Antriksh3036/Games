@@ -1,0 +1,4 @@
+In this game the computer will choose a word and you have to guess that word letter by letter
+You will have 5 chances only
+If you guessed all the letter of that word in 5 chances , you win the game ,else the computer wins 
+The length of the words increases based on the difficulty level choosen
