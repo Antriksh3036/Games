@@ -11,7 +11,7 @@ name = ""
 print("################# WELCOME TO GAMES #######################")
 for i in range(1,6):
     time.sleep(0.5)
-    print(".")
+    print(".",end=' ')
 time.sleep(2)
 print("THIS CODE INCLUDES A LOT OF GAMES TO PLAY")
 time.sleep(1)
@@ -73,6 +73,9 @@ print("----------------------+--------------------------")
 print("1.                       Number Guessing Game")
 print("----------------------+--------------------------")
 print("2.                       Snake Water Gun")
+print("----------------------+--------------------------")
+print("3.                       HangMan")
+print("----------------------+--------------------------")
 game=int(input("Enter the S.no of the game you want to play"))
 
 
@@ -197,6 +200,64 @@ elif game==2:
             elif comp_win == user_win:
                 print("Game drawed again , So a next super-round will be held")
                 draw = 1
+
+
+#HangMan
+if game==3:
+    #Rules
+    print("#################### WELCOME TO HANGMAN ##########################")
+    time.sleep(1)
+    print("In this game the computer will choose a word and you have to guess that word letter by letter")
+    print("You will have 5 chances only")
+    print("If you guessed all the letter of that word in 5 chances , you win the game ,else the computer wins ")
+    print("The length of the words increases based on the difficulty level choosen")
+
+    print("CHOOSE A DIFFICULTY LEVEL")
+    print("----------easy(e)-----------medium(m)-------------hard(h)--------------")
+    level = input("Enter the difficulty level (e/m/h)")
+    for i in range (4):
+        time.sleep(0.5)
+        print(".",end=' ')
+    if level.lower()=="e":
+        words=["am","an","cut","at","ace","bad","can","ear","had","dye"]
+    elif level.lower()=="m":
+        words=["apple","bread","chair","dance","eagle","fire","grape","horse","jump","kite"]
+    elif level.lower()=="h":
+        words=["abacus","balance","cabinet","decide","feature","harmony","justice","monitor","picture","special"]
+    else:
+        words=["am","an","cut","at","ace","bad","can","ear","had","dye"]
+    num = random.randint(1,10)
+    word = words[num]
+    chances = 5
+    word_length = len(word)
+    alphabets = list(word)
+    guessed_letter = []
+    for i in range (0,word_length):
+        guessed_letter.append("_")
+
+    print(f"This is the word -> {guessed_letter}\n")
+    while chances>=1:
+        print("Choose your letter")
+        letter = input("Enter the letter which you think is in the word")
+        condition = letter in alphabets
+        if condition == True:
+            print(f"\n\nNice Guess!,The letter '{letter}' was present in the word")
+            for i,alphabet in enumerate(alphabets):
+                if letter == alphabet:
+                    guessed_letter[i] = letter
+                time.sleep(1.7)
+            print(f"Now the word is -> {guessed_letter}")
+        else:
+            print(f"\nOOPS! Wrong Guess , The letter '{letter}' is not present in the word")
+            chances = chances - 1
+        print(f"Chances left = {chances}")
+        print("\n\n")
+        if guessed_letter == alphabets :
+            print("Nice! YOU WON")
+            print("\n")
+        elif guessed_letter != alphabets:
+            print("\nCOMPUTER WON")
+
 
 
 # Conclusion
