@@ -1,0 +1,6 @@
+This game has 3 elements --> 1.Snake(s) ,2.Water(w) ,3.Gun(g)
+The computer will choose one of these and you will choose one of these
+If Snake vs Water -> Snake wins , Snake vs Gun -> Gun wins , Water vs Gun -> Water wins
+There will be 10 rounds and who wins the maximum rounds , wins the game
+If a round is draw then no one gets point
+If the game ends in a draw , a super-round will be held and the winner will be decided based on that super-round
