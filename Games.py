@@ -252,11 +252,11 @@ if game==3:
             chances = chances - 1
         print(f"Chances left = {chances}")
         print("\n\n")
-        if guessed_letter == alphabets :
-            print("Nice! YOU WON")
-            print("\n")
-        elif guessed_letter != alphabets:
-            print("\nCOMPUTER WON")
+    if guessed_letter == alphabets :
+        print("Nice! YOU WON")
+        print("\n")
+    elif guessed_letter != alphabets:
+        print("\nCOMPUTER WON")
 
 
 
