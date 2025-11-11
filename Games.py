@@ -245,7 +245,7 @@ if game==3:
             for i,alphabet in enumerate(alphabets):
                 if letter == alphabet:
                     guessed_letter[i] = letter
-                time.sleep(1.7)
+                    time.sleep(1.7)
             print(f"Now the word is -> {guessed_letter}")
         else:
             print(f"\nOOPS! Wrong Guess , The letter '{letter}' is not present in the word")
