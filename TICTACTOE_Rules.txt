@@ -1,0 +1,4 @@
+This game has a 9 block table
+You have '0' and computer has'X' and you have to choose one out of nine blocks where you can place '0' and then computer will chose a block
+To win you have to cover either one row or one column or one diagonal with '0'
+And if computer covers first then computer wins and if neither one manages to do so , then its a draw
