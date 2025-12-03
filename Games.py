@@ -21,7 +21,6 @@ def fore_cyan():
 #Global Variables
 name = ""
 
-
 #Introduction
 fore_yellow()
 print(Style.BRIGHT+"################# WELCOME TO GAMES #######################"+Style.NORMAL)
@@ -31,7 +30,7 @@ for i in range(1,6):
 time.sleep(2)
 print("THIS CODE INCLUDES A LOT OF GAMES TO PLAY")
 time.sleep(1)
-input("PRESS ANY KEY TO GET STARTED")
+input("PRESS ENTER TO GET STARTED")
 
 #Sign-in/Log-in
 fore_blue()
@@ -95,13 +94,25 @@ while True:
     print(Style.BRIGHT+"----------------------+--------------------------"+Style.NORMAL)
     print(Fore.MAGENTA+"3.                       HangMan"+Fore.CYAN)
     print(Style.BRIGHT+"----------------------+--------------------------"+Style.NORMAL)
-    game=int(input("Enter the S.no of the game you want to play"))
+    print(Fore.MAGENTA+"4.                       Tic-Tac-Toe"+Fore.CYAN)
+    print(Style.BRIGHT+"----------------------+--------------------------"+Style.NORMAL)
+    while True:
+        try:
+            game=int(input("Enter the S.no of the game you want to play"))
+        except ValueError:
+            fore_red()
+            print(Style.BRIGHT+"ENTER A CORRECT SERIAL NUMBER"+Style.NORMAL)
+            time.sleep(1)
+        else:
+            time.sleep(1)
+            break
 
 
     # Number Guessing Game
     if game==1:
         while True:
             #Game Rules
+            print("\n\n")
             print(Style.BRIGHT+"########## Welcome to Number Guessing Game ##############"+Style.NORMAL)
             time.sleep(1)
             fore_yellow()
@@ -112,7 +123,7 @@ while True:
             print("You will only have 10 chances to guess the number")
             print("You win if you guessed the right number in 10 chances ,else the computer will win")
             time.sleep(3)
-            input("Press any key to contiue")
+            input("Press Enter to contiue")
 
             # Game Starts
             fore_cyan()
@@ -154,6 +165,7 @@ while True:
     elif game==2:
         while True:
             # Game Rules
+            print("\n\n")
             print(Style.BRIGHT+"############## Welcome to Snake Water Gun ################"+Style.NORMAL)
             time.sleep(1)
             fore_yellow()
@@ -165,7 +177,7 @@ while True:
             print("If a round is draw then no one gets point")
             print("If the game ends in a draw , a super-round will be held and the winner will be decided based on that super-round")
             time.sleep(3)
-            input("Enter any key to continue")
+            input("Press Enter to continue")
 
             # Game starts
             fore_cyan()
@@ -266,9 +278,10 @@ while True:
                 break
 
     #HangMan
-    if game==3:
+    elif game==3:
         while True:
             #Rules
+            print("\n\n")
             print("#################### WELCOME TO HANGMAN ##########################")
             time.sleep(1)
             fore_yellow()
@@ -340,6 +353,130 @@ while True:
             else:
                 print("\n\n")
                 break
+
+    #Tic Tac Toe
+    elif game==4:
+        while True:
+            #Rules
+            print("\n\n")
+            print("#################### WELCOME TO TIC-TAC-TOE ####################")
+            time.sleep(1)
+            fore_yellow()         
+            print("This game has a 9 block table")
+            print("You have '0' and computer has'X' and you have to choose one out of nine blocks where you can place '0' and then computer will chose a block")
+            print("To win you have to cover either one row or one column or one diagonal with '0'")
+            print("And if computer covers first then computer wins and if neither one manages to do so , then its a draw")
+            fore_blue()
+            table = [['*','*','*'],['*','*','*'],['*','*','*']]
+            time.sleep(0.5)
+            print(Style.BRIGHT)
+            print(table[0])
+            print(table[1])
+            print(table[2])
+            print(Style.NORMAL)
+            row = col = 0
+            count = 0
+            while True:
+
+                rand_row = random.randint(0,2)
+                rand_column = random.randint(0,2)
+
+                row_condition_player = table[0][0] == table[1][0] == table[2][0] == '0' or table[0][1] == table[1][1] == table[2][1] == '0' or table[0][2] == table[1][2] == table[2][2] == '0'
+                col_condition_player = table[0][0] == table[0][1] == table[0][2] == '0' or table[1][0] == table[1][1] == table[1][2] == '0' or table[2][0] == table[2][1] == table[2][2] == '0'
+                cross_condition_player = table[0][0] == table[1][1] == table[2][2] == '0' or table[0][2] == table[1][1] == table[2][0] == '0'
+                row_condition_comp = table[0][0] == table[1][0] == table[2][0] == 'X' or table[0][1] == table[1][1] == table[2][1] == 'X' or table[0][2] == table[1][2] == table[2][2] == 'X'
+                col_condition_comp = table[0][0] == table[0][1] == table[0][2] == 'X' or table[1][0] == table[1][1] == table[1][2] == 'X' or table[2][0] == table[2][1] == table[2][2] == 'X'
+                cross_condition_comp = table[0][0] == table[1][1] == table[2][2] == 'X' or table[0][2] == table[1][1] == table[2][0] == 'X'   
+
+                if row_condition_player == True or col_condition_player == True or cross_condition_player == True:
+                    fore_green()
+                    print(Style.BRIGHT+"Player won the game"+Style.NORMAL)
+                    break
+                elif row_condition_comp == True or col_condition_comp == True or cross_condition_comp == True:
+                    fore_red()
+                    print(Style.BRIGHT+"Computer won the game"+Style.NORMAL)
+                    break
+
+                fore_cyan()
+                time.sleep(1)
+                print("Enter the row number and the column number of the box where you want to put 0")
+                while True:
+                    while True:
+                        try:
+                            row = int(input("Enter the row number"))
+                        except ValueError:
+                            print("Please Enter a valid row number")
+                        else:
+                            if row <1 or row >3:
+                                print("Enter a valid row number between 1 and 3")
+                            else:
+                                break
+                    while True:
+                        try:
+                            col = int(input("Enter the column number"))
+                        except ValueError:
+                            print("Please Enter a valid column number")
+                        else:
+                            if col <1 or col >3:
+                                print("Enter a valid column number between 1 and 3")
+                            else:
+                                break
+                    if table[row-1][col-1]=='0' or table[row-1][col-1]=='X':
+                        print("Please Donot Put 0 in the space already covered")
+                    else:
+                        break
+                      
+                table[row-1][col-1]='0'
+                if row_condition_player == True or col_condition_player == True or cross_condition_player == True:
+                    fore_green()
+                    print(Style.BRIGHT+"Player won the game"+Style.NORMAL)
+                    break
+                elif row_condition_comp == True or col_condition_comp == True or cross_condition_comp == True:
+                    fore_red()
+                    print(Style.BRIGHT+"Computer won the game"+Style.NORMAL)
+                    break
+                while (table[rand_row][rand_column] == '0' or table[rand_row][rand_column] == 'X'):
+                    rand_row = random.randint(0,2)
+                    rand_column = random.randint(0,2)              
+                table[rand_row][rand_column]='X'
+
+                time.sleep(0.6)
+                fore_red()
+                print("Computer has put 'X',The table looks like:")
+                print(Style.BRIGHT)
+                print(table[0])
+                print(table[1])
+                print(table[2])
+                print(Style.NORMAL)
+
+
+                if row_condition_player == True or col_condition_player == True or cross_condition_player == True:
+                    fore_green()
+                    print(Style.BRIGHT+"Player won the game"+Style.NORMAL)
+                    break
+                elif row_condition_comp == True or col_condition_comp == True or cross_condition_comp == True:
+                    fore_red()
+                    print(Style.BRIGHT+"Computer won the game"+Style.NORMAL)
+                    break
+                count += 1
+                if count==9:
+                    fore_blue()
+                    print("No one won")
+                    break
+
+            time.sleep(1)
+            fore_cyan()
+            print("\n\n")
+            print("Do you want to play the same game or another game")
+            repeat = input("Type (same/another)")
+            if repeat.lower()=="same":
+                print("\n\n")
+                pass
+            else:
+                print("\n\n")
+                break
+
+
 
 
 # Conclusion
